@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 10:46:28 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/12 20:23:45 by cyelena          ###   ########.fr       */
+/*   Created: 2021/10/12 19:09:42 by cyelena           #+#    #+#             */
+/*   Updated: 2021/10/12 20:14:11 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <string.h>
 #include "libft.h"
-int	main()
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char a[20] = "89abcd11111e";
-	char b[20] = "12345abcde";
+	size_t	i;
 
-	printf("%lu\n", strlcat( a, b, 0));
-//	printf("%s\n", memmove(&b[0], &b[4], 9));
-	return (0);
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
