@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 13:53:57 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 18:16:55 by cyelena          ###   ########.fr       */
+/*   Created: 2021/10/13 18:42:41 by cyelena           #+#    #+#             */
+/*   Updated: 2021/10/13 19:34:35 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (s[i])
+	if (!little[i])
+		return ((char *)big);
+	while (big[i])
 	{
-		if (s[i] == c)
-			return (&((char *)s)[i]);
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			if (!big[i + j] && !little[j])
+				return ((char *)big + i);
+			j++;
+		}
+		if (!little[j])
+			return ((char *)big + i);
 		i++;
 	}
-	if (c == '\0')
-		return (&((char *)s)[i]);
 	return (0);
 }
