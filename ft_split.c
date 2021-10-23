@@ -6,7 +6,7 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:08:36 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 21:45:33 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/23 21:47:41 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_len_c(char const *s, char c)
 	return (i);
 }
 
-static int	ft_words(char const *s,char c)
+static int	ft_words(char const *s, char c)
 {
 	int	i;
 	int	words;
