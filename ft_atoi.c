@@ -6,12 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:15:02 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/16 19:36:01 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/23 13:26:12 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void	ft_index(int *i, int *sign, long int *sum, int *s);
+//void	ft_index(int *i, int *sign, long int *sum, int *s);
 int	ft_atoi(const char *nptr)
 {
 	int			i;
@@ -19,11 +19,11 @@ int	ft_atoi(const char *nptr)
 	long int	sum;
 	int			s;
 
-	// s = 0;
-	// sum = 0;
-	// i = 0;
-	// sign = 1;
-	ft_index(&i, &sign, &sum, &s);
+	s = 0;
+	sum = 0;
+	i = 0;
+	sign = 1;
+	//ft_index(&i, &sign, &sum, &s);
 	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '-' \
 			|| nptr[i] == '+' || nptr[i] == '\n' || nptr[i] == '\r'\
 			|| nptr[i] == '\v' || nptr[i] == '\f')
@@ -54,10 +54,10 @@ int	ft_atoi(const char *nptr)
 	return (sum * sign);
 }
 
-void	ft_index(int *i, int *sign, long int *sum, int *s)
-{
-	i = 0;
-	sign = 0;
-	sum = 0;
-	s = 0;
-}
+//void	ft_index(int *i, int *sign, long int *sum, int *s)
+// {
+// 	i = 0;
+// 	sign = 0;
+// 	sum = 0;
+// 	s = 0;
+// }
