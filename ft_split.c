@@ -6,7 +6,7 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:08:36 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 18:57:59 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/23 21:45:33 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,15 @@ static int	ft_words(char const *s,char c)
 	words = 0;
 	while (s[i])
 	{
-		if ((s[i] != c && s[i + 1] && s[i + 1] == c) \
+		if ((s[i] != c && s[i + 1] == c) \
 		 || (s[i] != c && !s[i + 1]))
 			words++;
 		 i++;
 	}
-	if (words == 0 && c == '\0')
-		return (1);
 	return (words);
 }
 
-static char 	**ft_free(char **s1)
+static char	**ft_free(char **s1)
 {
 	unsigned int	i;
 
@@ -66,18 +64,17 @@ char	**ft_split(char const *s, char c)
 	array = malloc((ft_words(s, c) + 1) * sizeof(char *));
 	if (!array)
 		return (0);
-	while (s[i++] == c)
-		start++;
-	i--;
+	array[ft_words(s, c)] = NULL;
 	while (i < ft_words(s, c))
 	{
+		while (s[start] == c)
+			start++;
 		array[i] = ft_substr (s, start, ft_len_c(&s[start], c));
 		if (!array)
 			return (ft_free(array));
 		start += ft_len_c(&s[start], c);
-		while (s[start] == c)
-			start++;
 		i++;
+		start++;
 	}
 	array[i] = 0;
 	return (array);
