@@ -6,7 +6,7 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:08:36 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 14:40:05 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/23 18:57:59 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,22 @@ static int	ft_words(char const *s,char c)
 			words++;
 		 i++;
 	}
+	if (words == 0 && c == '\0')
+		return (1);
 	return (words);
+}
+
+static char 	**ft_free(char **s1)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i])
+	{
+		free(s1[i++]);
+	}
+	free(s1);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -56,7 +71,9 @@ char	**ft_split(char const *s, char c)
 	i--;
 	while (i < ft_words(s, c))
 	{
-		array[i] = ft_substr(s, start, ft_len_c(&s[start], c));
+		array[i] = ft_substr (s, start, ft_len_c(&s[start], c));
+		if (!array)
+			return (ft_free(array));
 		start += ft_len_c(&s[start], c);
 		while (s[start] == c)
 			start++;

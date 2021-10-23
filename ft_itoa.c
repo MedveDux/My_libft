@@ -1,40 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 16:11:44 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 18:36:39 by cyelena          ###   ########.fr       */
+/*   Created: 2021/10/23 18:09:18 by cyelena           #+#    #+#             */
+/*   Updated: 2021/10/23 18:36:45 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char	*ft_strjoin(char const *s1, char const *s2)
+static int	ft_minus(int num)
 {
-	char	*s;
-	int		i;
-	int		k;
+	int	len_num;
 
-	k = 0;
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	s = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(const char));
+	len_num = 0;
+	if (num == 0)
+		len_num = 1;
+	if (num < 0)
+	{
+		len_num++;
+		num = -num;
+	}
+	while (num != 0)
+	{
+		num = num / 10;
+		len_num++;
+	}
+	return (len_num);
+}
+
+char	*ft_itoa(int n)
+{
+	int		l;
+	long	num;
+	char	*s;
+
+	num = (long)n;
+	l = ft_minus(n);
+	s = malloc(l + 1);
 	if (!s)
 		return (0);
-	while (s1[i])
+	s[l] = '\0';
+	if (num < 0)
 	{
-		s[i] = s1[i];
-		i++;
+		s[0] = '-';
+		num = -num;
 	}
-	while (s2[k])
+	if (num == 0)
+		s[0] = '0';
+	l--;
+	while (l >= 0 && num != 0)
 	{
-		s[i] = s2[k];
-		i++;
-		k++;
+		s[l] = num % 10 + '0';
+		num = num / 10;
+		l--;
 	}
-	s[i] = '\0';
 	return (s);
 }
