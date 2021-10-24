@@ -6,7 +6,7 @@
 #    By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 10:43:47 by cyelena           #+#    #+#              #
-#    Updated: 2021/10/23 20:14:03 by cyelena          ###   ########.fr        #
+#    Updated: 2021/10/24 17:39:45 by cyelena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,14 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c ft_strmapi.c ft_split.c\
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 		
+SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+
+HEAD = libft.h
 
 OBJ = ${patsubst %.c,%.o,$(SRCS)}
-D_FILES = ${patsubst %.c,%.d,$(SRCS)}
+OBJ_B = ${patsubst %.c,%.o,$(SRCS_B)}
+
+D_FILES = ${patsubst %.c,%.d,$(SRCS) $(SRCS_B)}
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
@@ -32,14 +37,18 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 	ar rcs ${NAME} $?
+	
+${OBJ} : $(HEAD) Makefile
 
 %.o : %.c
 	${CC} ${FLAGS} ${OPTFLAGS} -c $< -o $@ -MD
 		
 include $(wildcard $(D_FILES))
 
+bonus :
+	@make OBJ="$(OBJ_B)" all
 clean:
-	${RM} ${OBJ} ${D_FILES}
+	${RM} ${OBJ} ${D_FILES} ${OBJ_B}
 
 fclean: clean 
 	${RM} ${NAME}
