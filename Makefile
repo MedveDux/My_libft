@@ -6,7 +6,7 @@
 #    By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 10:43:47 by cyelena           #+#    #+#              #
-#    Updated: 2021/10/24 17:39:45 by cyelena          ###   ########.fr        #
+#    Updated: 2021/10/24 18:23:14 by cyelena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 		
 SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-
+		ft_lstdelone.c
 HEAD = libft.h
 
 OBJ = ${patsubst %.c,%.o,$(SRCS)}
@@ -46,7 +46,7 @@ ${OBJ} : $(HEAD) Makefile
 include $(wildcard $(D_FILES))
 
 bonus :
-	@make OBJ="$(OBJ_B)" all
+	@make OBJ="$(OBJ) $(OBJ_B)" all
 clean:
 	${RM} ${OBJ} ${D_FILES} ${OBJ_B}
 
