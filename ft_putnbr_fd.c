@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 20:20:06 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 20:23:51 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:33:19 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n <= -2147483648)

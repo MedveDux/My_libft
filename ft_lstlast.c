@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 16:52:44 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/24 17:38:48 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:32:41 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)

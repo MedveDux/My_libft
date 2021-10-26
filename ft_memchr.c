@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 17:17:05 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 18:19:58 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:32:54 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;

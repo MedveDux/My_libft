@@ -6,7 +6,7 @@
 #    By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 10:43:47 by cyelena           #+#    #+#              #
-#    Updated: 2021/10/24 18:23:14 by cyelena          ###   ########.fr        #
+#    Updated: 2021/10/25 19:41:40 by cyelena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 		
 SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 HEAD = libft.h
 
 OBJ = ${patsubst %.c,%.o,$(SRCS)}
@@ -31,8 +31,9 @@ D_FILES = ${patsubst %.c,%.d,$(SRCS) $(SRCS_B)}
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 OPTFLAGS = -O2
-RM = @rm -f
+RM = rm -f
 
+TEMP_FILE = .temp_file
 all: ${NAME}
 
 ${NAME}: ${OBJ}
@@ -45,8 +46,12 @@ ${OBJ} : $(HEAD) Makefile
 		
 include $(wildcard $(D_FILES))
 
-bonus :
-	@make OBJ="$(OBJ) $(OBJ_B)" all
+bonus : ${TEMP_FILE}
+
+${TEMP_FILE}: $(OBJ) $(OBJ_B) 
+		ar rcs ${NAME} $(OBJ) $(OBJ_B) 
+		touch ${TEMP_FILE}
+		
 clean:
 	${RM} ${OBJ} ${D_FILES} ${OBJ_B}
 
@@ -55,4 +60,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

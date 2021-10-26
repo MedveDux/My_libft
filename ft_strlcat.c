@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:15:48 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/12 21:10:12 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:33:59 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;

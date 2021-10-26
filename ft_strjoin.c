@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 16:11:44 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 18:36:39 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:33:56 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s;

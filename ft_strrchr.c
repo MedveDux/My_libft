@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:52:10 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 14:13:50 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:34:20 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;

@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:42:41 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 19:34:35 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:34:16 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;

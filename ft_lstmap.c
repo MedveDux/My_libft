@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 19:09:55 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/25 19:33:51 by cyelena          ###   ########.fr       */
+/*   Created: 2021/10/25 18:21:12 by cyelena           #+#    #+#             */
+/*   Updated: 2021/10/25 19:32:45 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*s1;
+	t_list	*copy_list;
+	t_list	*cp_list;
 
-	s1 = malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (!s1)
-		return (NULL);
-	ft_strlcpy(s1, s, ft_strlen(s) + 1);
-	return (s1);
+	copy_list = NULL;
+	while (lst && f)
+	{
+		cp_list = ft_lstnew(f(lst -> content));
+		if (!cp_list)
+		{
+			ft_lstclear(&copy_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&copy_list, cp_list);
+		lst = lst -> next;
+	}
+	return (copy_list);
 }

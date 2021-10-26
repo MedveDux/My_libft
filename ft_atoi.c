@@ -6,11 +6,13 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:15:02 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/24 14:54:26 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:56:34 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+
 static void	ft_index(int *i, int *sign, int *s);
 static int	ft_body(const char *nptr, int i, int s, int sign);
 
@@ -64,4 +66,10 @@ static void	ft_index(int *i, int *sign, int *s)
 	*i = 0;
 	*sign = 1;
 	*s = 0;
+}
+
+int main(void)
+{
+	printf("%d %d", atoi("-67867867567576"), atoi("00000000000000000000000000000000123"));
+	return (0);
 }

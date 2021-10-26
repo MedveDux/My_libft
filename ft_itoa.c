@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 18:09:18 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/23 18:36:45 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:32:19 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static int	ft_minus(int num)
 {
 	int	len_num;

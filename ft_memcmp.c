@@ -6,11 +6,12 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:22:05 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 18:27:32 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:32:58 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
