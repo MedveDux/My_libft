@@ -6,7 +6,7 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:52:10 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/25 19:34:20 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/26 18:36:23 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return (&((char *)s)[i]);
 		i--;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 		return (&((char *)s)[i]);
 	return (0);
 }

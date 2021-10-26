@@ -6,23 +6,21 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 18:15:02 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/25 21:56:34 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/26 19:06:26 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-static void	ft_index(int *i, int *sign, int *s);
-static int	ft_body(const char *nptr, int i, int s, int sign);
+static void	ft_index(int *i, int *sign);
+static int	ft_body(const char *nptr, int i, int sign);
 
 int	ft_atoi(const char *nptr)
 {
 	int			i;
 	int			sign;
-	int			s;
 
-	ft_index(&i, &sign, &s);
+	ft_index(&i, &sign);
 	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '-' \
 			|| nptr[i] == '+' || nptr[i] == '\n' || nptr[i] == '\r'\
 			|| nptr[i] == '\v' || nptr[i] == '\f')
@@ -40,10 +38,10 @@ int	ft_atoi(const char *nptr)
 		}
 		i++;
 	}
-	return (ft_body(nptr, i, s, sign));
+	return (ft_body(nptr, i, sign));
 }
 
-static int	ft_body(const char *nptr, int i, int s, int sign)
+static int	ft_body(const char *nptr, int i, int sign)
 {
 	long int	sum;
 
@@ -52,24 +50,19 @@ static int	ft_body(const char *nptr, int i, int s, int sign)
 	{
 		sum = sum * 10 + (nptr[i] - '0');
 		i++;
-		s++;
+		if (sum < 0)
+		{
+			if (sign < 0)
+				return (0);
+			else
+				return (-1);
+		}
 	}
-	if (s * sign >= 19)
-		return (-1);
-	if (s * sign <= -19)
-		return (0);
 	return (sum * sign);
 }
 
-static void	ft_index(int *i, int *sign, int *s)
+static void	ft_index(int *i, int *sign)
 {
 	*i = 0;
 	*sign = 1;
-	*s = 0;
-}
-
-int main(void)
-{
-	printf("%d %d", atoi("-67867867567576"), atoi("00000000000000000000000000000000123"));
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 17:17:05 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/25 19:32:54 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/26 18:16:25 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		return (0);
 	while (i < n)
 	{
-		if (((char *)s)[i] == c)
+		if (((unsigned char *)s)[i] == (unsigned char)c)
 			return (&((unsigned char *)s)[i]);
 		i++;
 	}
-	if (c == '\0')
-		return (&((unsigned char *)s)[i]);
 	return (0);
 }

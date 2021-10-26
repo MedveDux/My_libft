@@ -6,7 +6,7 @@
 #    By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 10:43:47 by cyelena           #+#    #+#              #
-#    Updated: 2021/10/25 19:41:40 by cyelena          ###   ########.fr        #
+#    Updated: 2021/10/26 18:21:49 by cyelena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,21 +39,22 @@ all: ${NAME}
 ${NAME}: ${OBJ}
 	ar rcs ${NAME} $?
 	
-${OBJ} : $(HEAD) Makefile
+${OBJ} : ${HEAD} Makefile
 
 %.o : %.c
 	${CC} ${FLAGS} ${OPTFLAGS} -c $< -o $@ -MD
 		
-include $(wildcard $(D_FILES))
+include ${wildcard ${D_FILES}}
 
 bonus : ${TEMP_FILE}
 
-${TEMP_FILE}: $(OBJ) $(OBJ_B) 
-		ar rcs ${NAME} $(OBJ) $(OBJ_B) 
+${TEMP_FILE}: ${OBJ} ${OBJ_B} 
+		ar rcs ${NAME} ${OBJ} ${OBJ_B} 
 		touch ${TEMP_FILE}
 		
 clean:
 	${RM} ${OBJ} ${D_FILES} ${OBJ_B}
+	${RM} ${TEMP_FILE}
 
 fclean: clean 
 	${RM} ${NAME}

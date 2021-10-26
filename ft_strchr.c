@@ -6,22 +6,19 @@
 /*   By: cyelena <cyelena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:53:57 by cyelena           #+#    #+#             */
-/*   Updated: 2021/10/13 18:16:55 by cyelena          ###   ########.fr       */
+/*   Updated: 2021/10/26 18:34:44 by cyelena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
-			return (&((char *)s)[i]);
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	if (c == '\0')
-		return (&((char *)s)[i]);
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (0);
 }
