@@ -1,4 +1,4 @@
-# My_libft
+# libft
 21 school 
 
 # testers
