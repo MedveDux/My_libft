@@ -1,7 +1,7 @@
 # libft
 21 school 
 
-# testers
+# Testers
 
 https://github.com/Tripouille/libftTester  
 https://github.com/alelievr/libft-unit-test  
